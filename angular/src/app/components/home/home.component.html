@@ -1,0 +1,6 @@
+<div>
+  <p>Password Manager</p>
+  <ng-container *ngIf="url$ | async as url">
+    <p>Passwords for {{ url }}</p>
+  </ng-container>
+</div>
