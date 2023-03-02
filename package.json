@@ -1,4 +1,13 @@
 {
+  "name": "password-extention",
+  "author": {
+    "email": "pgreene864@gmail.com",
+    "name": "sam greene",
+    "url": "https://sammy.link"
+  },
+  "scripts": {
+    "build": "tsc && pushd angular && ng build && popd"
+  },
   "devDependencies": {
     "chrome-types": "^0.1.175"
   }
