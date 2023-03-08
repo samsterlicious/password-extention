@@ -1,25 +1,18 @@
-const article = document.querySelector("article");
+import { getIcon } from "./createIcon.js";
+import { getPasswordInput, getUsernameInput } from "./selector.js";
+console.log("hi");
+const username = getUsernameInput();
+console.log("uu", username);
+if (username) {
+  username.parentNode!.append(
+    getIcon(username.scrollHeight, username.clientLeft + username.scrollLeft)
+  );
+}
 
-// `document.querySelector` may return null if the selector doesn't match anything.
-if (article) {
-  const text = article.textContent;
-  const wordMatchRegExp = /[^\s]+/g; // Regular expression
-  const words = text!.matchAll(wordMatchRegExp);
-  // matchAll returns an iterator, convert to array to get word count
-  const wordCount = [...words].length;
-  const readingTime = Math.round(wordCount / 200);
-  const badge = document.createElement("p");
-  // Use the same styling as the publish information in an article's header
-  badge.classList.add("color-secondary-text", "type--caption");
-  badge.textContent = `⏱️ ${readingTime} minz read`;
+const password = getPasswordInput();
 
-  // Support for API reference docs
-  const heading = article.querySelector("h1");
-  // Support for article docs with date
-  const date = article.querySelector("time")?.parentNode;
-  if (date) {
-    date.append(badge);
-  } else if (heading) {
-    // heading.insertAdjacentElement("afterend", badge);
-  }
+if (password && !username) {
+  password.parentNode!.append(
+    getIcon(password.scrollHeight, password.clientLeft + password.scrollLeft)
+  );
 }
